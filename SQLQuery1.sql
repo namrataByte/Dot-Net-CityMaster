@@ -1,0 +1,21 @@
+﻿CREATE TABLE dbo.Cities (
+    CityId INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+    CityCode NVARCHAR(50) NOT NULL,
+    CityName NVARCHAR(100) NOT NULL,
+    IsInLeftColumn BIT NOT NULL DEFAULT 0
+);
+
+Select * from Cities;
+
+ALTER TABLE dbo.Cities
+ADD LeftValue NVARCHAR(255) NULL,
+    RightValue NVARCHAR(255) NULL;
+ 
+
+ALTER TABLE Cities DROP COLUMN LeftValue;
+ALTER TABLE Cities  DROP COLUMN RightValue;
+
+SELECT * 
+FROM INFORMATION_SCHEMA.COLUMNS 
+WHERE TABLE_NAME = 'Cities';
+
